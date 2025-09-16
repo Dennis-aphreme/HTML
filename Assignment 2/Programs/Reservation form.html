@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Reservation Form</title>
+</head>
+<body>
+
+  <center>
+    <h2>Reservation Form</h2>
+    <hr width="300">
+  </center>
+
+  <form>
+    <fieldset>
+      <legend><b>Your Information</b></legend>
+      <table>
+        <tr>
+          <td><label for="name">Full Name:</label></td>
+          <td><input type="text" id="name" name="name" required></td>
+        </tr>
+        <tr>
+          <td><label for="email">Email Address:</label></td>
+          <td><input type="email" id="email" name="email" required></td>
+        </tr>
+      </table>
+    </fieldset>
+
+    <br>
+
+    <fieldset>
+      <legend><b>Reservation Details</b></legend>
+      <table>
+        <tr>
+          <td><label for="date">Reservation Date:</label></td>
+          <td><input type="date" id="date" name="date" required></td>
+        </tr>
+        <tr>
+          <td><label for="time">Time:</label></td>
+          <td><input type="time" id="time" name="time" required></td>
+        </tr>
+        <tr>
+          <td><label for="guests">Number of Guests:</label></td>
+          <td><input type="number" id="guests" name="guests" min="1" required></td>
+        </tr>
+      </table>
+      <p><small>Format: YYYY-MM-DD</small></p>
+    </fieldset>
+
+    <br>
+
+    <fieldset>
+      <legend><b>Special Requests</b></legend>
+      <p>
+        <label for="requests">Let us know your preferences:</label><br>
+        <textarea id="requests" name="requests" rows="4" cols="40" placeholder="E.g., vegetarian meals, wheelchair access, etc."></textarea>
+      </p>
+    </fieldset>
+
+    <br>
+    <center>
+      <button type="submit">Submit Reservation</button>
+    </center>
+  </form>
+
+</body>
+</html>

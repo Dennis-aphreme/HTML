@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>CSS Styles</title>
+
+  <!-- Internal CSS -->
+  <style>
+    h1 {
+      color: navy;
+      text-align: center;
+    }
+
+    .internal-style {
+      font-size: 18px;
+      color: green;
+      margin: 10px;
+    }
+
+  </style>
+
+  <!-- External CSS -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <h1>CSS Styling Methods</h1>
+
+    <!-- Inline CSS -->
+    <p style="color: red; font-size: 18px;">
+        This is styled using <strong>inline CSS</strong>.
+    </p>
+
+    <p class="internal-style">
+        This is styled using <strong>internal CSS</strong>.
+    </p>
+
+    <p class="external-style">
+        This is styled using <strong>external CSS</strong>.
+    </p>
+
+</body>
+</html>
