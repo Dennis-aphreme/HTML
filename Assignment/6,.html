@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>  
+    <title>Live Character Counter</title>
+    
+</head>
+<body>
+    <h2>Live Character Counter</h2>
+    <textarea id="textbox" placeholder="Type here..."></textarea>
+    <div id="counter">Characters: 0</div>
+
+    <script>
+        const textbox = document.getElementById('textbox');
+        const counter = document.getElementById('counter');
+
+        textbox.addEventListener('input', function() {
+            counter.textContent = 'Characters: ' + textbox.value.length;
+        });
+    </script>
+</body>
+</html>

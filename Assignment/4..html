@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Add List Item Dynamically</title>
+</head>
+<body>
+    <h3>My List</h3>
+    <ul id="myList">
+        <li>Item 1</li>
+        <li>Item 2</li>
+    </ul>
+    <input type="text" id="newItem" placeholder="Enter new item">
+    <button onclick="addItem()">Add Item</button>
+
+    <script>
+        function addItem() {
+            var input = document.getElementById('newItem');
+            var value = input.value.trim();
+            if (value !== "") {
+                var li = document.createElement('li');
+                li.textContent = value;
+                document.getElementById('myList').appendChild(li);
+                input.value = "";
+            }
+        }
+    </script>

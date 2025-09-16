@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Swap Paragraphs</title>
+</head>
+<body>
+    <p id="para1">This is the first paragraph.</p>
+    <p id="para2">This is the second paragraph.</p>
+    <button onclick="swapParagraphs()">Swap Text</button>
+
+    <script>
+        function swapParagraphs() {
+            const p1 = document.getElementById('para1');
+            const p2 = document.getElementById('para2');
+            const temp = p1.textContent;
+            p1.textContent = p2.textContent;
+            p2.textContent = temp;
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>!important Example</title>
+    <style>
+        p {
+            color: blue !important; /* This style will take precedence */
+        }
+        /* This style will be overridden by the !important rule */
+        p.special {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <p>This is a paragraph with a style defined as !important.</p>
+    <p class="special">This is a paragraph with a class-specific style.</p>
+</body>
+</html>

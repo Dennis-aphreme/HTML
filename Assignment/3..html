@@ -1,0 +1,20 @@
+<html>
+    <head>
+        <title> Show or Hide TExt Button </title>
+    </head>
+    <body>
+        <p id="para"> Hello World, Welcome to HTML meow </p>
+        <button onclick="ToggleText()"> Hide/Show Text </button>
+        <script>
+            function ToggleText(){
+                var para = document.getElementById("para");
+                if(para.style.display === "none"){
+                    para.style.display = "block";
+                } else {
+                    para.style.display = "none";
+                }
+            }
+        </script>
+        
+    </body>
+</html>

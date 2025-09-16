@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Image Mouse Over Example</title>
+    <style>
+        img {
+            width: 300px;
+            height: auto;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <img id="myImage" src="image1.jpg" alt="Image" />
+
+    <script>
+        const img = document.getElementById('myImage');
+        img.addEventListener('mouseover', function() {
+            img.src = 'image2.jpg';
+        });
+        img.addEventListener('mouseout', function() {
+            img.src = 'image1.jpg';
+        });
+    </script>
+</body>
+</html>

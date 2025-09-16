@@ -1,0 +1,23 @@
+<html>
+    <head> 
+        <title>Text Validate</title>
+    </head>
+    <body>
+        <form id="myForm" novalidate>
+            <label for="myText">Enter Text:</label>
+            <input type="text" id="myText" name="myText" required>
+            <span id="errorMsg" style="color:red;"></span>
+            <br><br>
+            <button type="submit">Submit</button>
+        </form>
+        <script>
+            document.getElementById('myForm').addEventListener('submit', function(e) {
+                var text = document.getElementById('myText').value.trim();
+                if (text === "") {
+                    document.getElementById('errorMsg').textContent = "This field is required.";
+                    e.preventDefault();
+                } else {
+                    document.getElementById('errorMsg').textContent = "";
+                }
+            });
+        </script>

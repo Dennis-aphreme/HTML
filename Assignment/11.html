@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Insert Paragraph Example</title>
+</head>
+<body>
+    <div id="myDiv"></div>
+    <button id="addParaBtn">Add Paragraph</button>
+
+    <script>
+        const div = document.getElementById('myDiv');
+        const button = document.getElementById('addParaBtn');
+        let count = 1;
+
+        button.addEventListener('click', function() {
+            if (count <= 3) {
+                const para = document.createElement('p');
+                para.textContent = 'This is paragraph ' + count + '.';
+                div.appendChild(para);
+                count++;
+            }
+        });
+    </script>
+</body>
+</html>

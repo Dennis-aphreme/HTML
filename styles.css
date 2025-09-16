@@ -1,0 +1,24 @@
+body {
+    text-align: center;
+    background-color: rgba(11, 143, 124, 0.546);
+    color: rgb(19, 61, 59);
+}
+
+h1 {
+    color: rgb(0, 225, 255);
+}
+
+h1:hover {
+    color: rgb(255, 255, 0);
+    font-size: 50px;
+}
+
+.big-text {
+    color: rgb(234, 0, 255);
+    font-size: 50px;
+}
+
+.big-text:hover {
+    color: rgb(255, 136, 136);
+    font-size: 100px;
+}

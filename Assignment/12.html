@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student List</title>
+    <style>
+        #students { margin-bottom: 10px; }
+        li { margin: 4px 0; }
+    </style>
+</head>
+<body>
+    <h2>Student List</h2>
+    <ul id="students">
+        <li>Alice</li>
+        <li>Bob</li>
+        <li>Charlie</li>
+        <li>David</li>
+        <li>Eve</li>
+    </ul>
+    <button onclick="deleteLastStudent()">Delete Last Student</button>
+
+    <script>
+        function deleteLastStudent() {
+            const list = document.getElementById('students');
+            if (list.lastElementChild) {
+                list.removeChild(list.lastElementChild);
+            }
+        }
+    </script>
+</body>
+</html>

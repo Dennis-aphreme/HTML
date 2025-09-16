@@ -1,0 +1,7 @@
+/* style.css - External CSS */
+.external-style {
+    background-color: #15ff00;
+    color: rgb(255, 6, 6);
+    padding: 30px;
+    border: 2px dashed rgb(255, 255, 255);
+}

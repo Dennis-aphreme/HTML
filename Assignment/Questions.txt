@@ -1,0 +1,15 @@
+1. Write a program to change the text of a heading when a button is clicked
+2. Write a program to change the colour and size of a paragraph when a button is clicked 
+3. Write a program to hide and show the text a text element using 2 buttons
+4. Write a program to add a new list item to an unordered list dynamically
+5. Write a program to validate a text field in a form so that it is not empty
+6. Write a program to count the number of characters typed in the text box and display it live.
+7. Write a program to change the background color of a page via button click.
+8. Write a program to swap the text of two paragraphs using DOM.
+9. Write a program to display the current date and time inside a paragraph when a button is clicked.
+10. Write a program to change an image when the mouse is placed over it (mouse over event).
+11. Write a program to create a new paragraph element and insert it into a division.
+12. Write a program to delete the last item of a list when a button is clicked.
+13. Write a program to make a simple calculator using DOM elements (addition, subtraction).
+14. Write a program to display an alert message when a button is clicked using DOM events.
+15. Write a program to change the border style of a paragraph using a button.
