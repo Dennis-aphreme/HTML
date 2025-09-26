@@ -1,25 +1,375 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Homepage</title>
-  <link rel="stylesheet" href="style.css">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>GreenBack — Campus Recycling, Rewarded</title>
+  <meta name="description" content="GreenBack: smart recycling bins + rewards for college students. Dispose bottles, earn points, redeem perks, and power a circular campus economy." />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --green:#0ea56e;
+      --green-2:#0b8b59;
+      --muted:#6b7280;
+      --bg:#f6fbf7;
+      --card:#ffffff;
+      --glass: rgba(255,255,255,0.7);
+      --radius:14px;
+      --max-width:1100px;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family:Inter,system-ui,Segoe UI,Roboto,"Helvetica Neue",Arial;
+      color:#0f172a;
+      background:linear-gradient(180deg,var(--bg),#eef7f2);
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      line-height:1.45;
+    }
+    .container{
+      max-width:var(--max-width);
+      margin:36px auto;
+      padding:24px;
+    }
+
+    /* Header */
+    .header{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:16px;
+      margin-bottom:28px;
+    }
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      text-decoration:none;
+      color:inherit;
+    }
+    .logo{
+      width:54px;
+      height:54px;
+      border-radius:12px;
+      background:linear-gradient(135deg,var(--green),var(--green-2));
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      color:white;
+      font-weight:700;
+      font-size:20px;
+      box-shadow:0 6px 18px rgba(11,139,89,0.14);
+    }
+    .brand h1{
+      margin:0;font-size:18px;
+    }
+    .nav{
+      display:flex;
+      gap:12px;
+      align-items:center;
+    }
+    .btn{
+      background:var(--green);
+      color:white;
+      border:none;
+      padding:10px 14px;
+      border-radius:10px;
+      cursor:pointer;
+      font-weight:600;
+      box-shadow:0 6px 18px rgba(14,165,110,0.12);
+    }
+    .btn.secondary{
+      background:transparent;
+      color:var(--green-2);
+      border:1px solid rgba(11,139,89,0.12);
+      box-shadow:none;
+    }
+
+    /* Hero */
+    .hero{
+      display:grid;
+      grid-template-columns:1fr 420px;
+      gap:28px;
+      align-items:center;
+      margin-bottom:28px;
+    }
+    .hero-card{
+      background:var(--card);
+      border-radius:var(--radius);
+      padding:28px;
+      box-shadow:0 10px 30px rgba(6,22,14,0.05);
+    }
+    .kicker{
+      display:inline-block;
+      background:linear-gradient(90deg,var(--green-2),var(--green));
+      color:white;padding:6px 10px;border-radius:999px;font-size:12px;font-weight:600;margin-bottom:12px;
+    }
+    .hero h2{margin:6px 0 12px;font-size:28px}
+    .hero p{color:var(--muted);margin:0 0 18px}
+    .features{
+      display:flex;
+      gap:12px;
+      flex-wrap:wrap;
+    }
+    .feature{
+      display:flex;gap:10px;align-items:center;
+      background:var(--glass);backdrop-filter:blur(4px);
+      padding:10px;border-radius:10px;font-weight:600;font-size:14px;color:#053029;
+    }
+
+    /* Mock bin panel */
+    .mock-panel{
+      background:linear-gradient(180deg,#f8fff9,#ffffff);
+      border-radius:16px;padding:20px;
+      border:1px solid rgba(11,139,89,0.06);
+      text-align:center;
+    }
+    .mock-bin{
+      width:160px;height:160px;margin:0 auto;border-radius:12px;
+      background:linear-gradient(180deg,#e6fff0,#d9f9e5);
+      display:flex;flex-direction:column;align-items:center;justify-content:center;
+      box-shadow:0 12px 30px rgba(11,139,89,0.08);
+      font-weight:700;color:var(--green-2)
+    }
+    .points{font-size:22px;margin-top:10px;font-weight:700;color:#0c6b46}
+    .cta-row{display:flex;gap:12px;margin-top:14px;justify-content:center}
+
+    /* Sections */
+    .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:30px}
+    .card{background:var(--card);border-radius:12px;padding:18px;box-shadow:0 8px 20px rgba(6,22,14,0.04)}
+    .card h3{margin:0 0 8px}
+    .how{display:flex;gap:18px;align-items:flex-start}
+    .step{display:flex;gap:12px;align-items:flex-start}
+    .step .num{width:40px;height:40px;border-radius:10px;background:var(--green);color:white;display:flex;align-items:center;justify-content:center;font-weight:700}
+    .footer{margin-top:40px;padding:18px;border-radius:12px;background:linear-gradient(180deg,#fbfffc,#eefbf0);display:flex;justify-content:space-between;align-items:center}
+    .small{font-size:13px;color:var(--muted)}
+
+    /* Responsive */
+    @media (max-width:980px){
+      .hero{grid-template-columns:1fr}
+      .grid-3{grid-template-columns:repeat(2,1fr)}
+    }
+    @media (max-width:640px){
+      .grid-3{grid-template-columns:1fr}
+      .nav{display:none}
+      .container{padding:16px;margin:18px auto}
+      .header{gap:8px}
+    }
+
+    /* simple form */
+    .signup{
+      display:flex;gap:10px;flex-wrap:wrap;
+    }
+    .input{
+      padding:10px 12px;border-radius:10px;border:1px solid #e6f0ea;min-width:0;
+    }
+    .badge{background:#e7f9ee;color:var(--green-2);padding:6px 10px;border-radius:999px;font-weight:700;font-size:13px}
+  </style>
 </head>
 <body>
-  <nav>
-    <h1><a href="index.html" style="text-decoration: none; color: inherit;">Dennis P A</a></h1>
-    <ul>
-      <li><a href="about.html">About Me</a></li>
-      <li><a href="programs.html">My Programs</a></li>
-      <li><a href="stuff.html">Stuff</a></li>
-    </ul>
-  </nav>
+  <div class="container">
+    <header class="header">
+      <a class="brand" href="#">
+        <div class="logo">GB</div>
+        <div>
+          <h1>GreenBack</h1>
+          <div class="small">Recycle • Reward • Reuse</div>
+        </div>
+      </a>
 
-  <section class="hero">
-    <h2>Welcome to Dennis' Website 🚀</h2>
-    <p>This is my personal space where I share my journey, projects, and ideas.</p>
-    <a href="about.html" class="btn">Explore More</a>
-  </section>
+      <nav class="nav" aria-label="Main navigation">
+        <button class="btn secondary" onclick="scrollToSection('howitworks')">How it works</button>
+        <button class="btn secondary" onclick="scrollToSection('rewards')">Rewards</button>
+        <button class="btn" onclick="scrollToSection('signup')">Get Started</button>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="hero-card">
+          <span class="kicker">Campus-first</span>
+          <h2>Recycle bottles. Earn rewards. Build a greener campus.</h2>
+          <p>GreenBack makes recycling simple and fun for college students—smart bins, instant points, and redeemable perks. Join a student movement that turns waste into useful campus infrastructure.</p>
+
+          <div class="features" aria-hidden="true">
+            <div class="feature">Smart bins</div>
+            <div class="feature">Instant rewards</div>
+            <div class="feature">Campus dashboards</div>
+          </div>
+
+          <div style="margin-top:18px; display:flex; gap:12px; flex-wrap:wrap;">
+            <button class="btn" onclick="scrollToSection('signup')">Sign up for pilot</button>
+            <button class="btn secondary" onclick="scrollToSection('howitworks')">See demo</button>
+          </div>
+
+          <div style="margin-top:18px;">
+            <form id="leadForm" class="signup" onsubmit="onLeadSubmit(event)">
+              <input class="input" type="text" id="name" placeholder="Your name" required>
+              <input class="input" type="email" id="email" placeholder="College email" required>
+              <button type="submit" class="btn">Request pilot</button>
+            </form>
+          </div>
+        </div>
+
+        <aside class="mock-panel" aria-hidden="true">
+          <div style="display:flex;justify-content:center;align-items:center;gap:12px;">
+            <div class="mock-bin">BIN</div>
+          </div>
+          <div class="points">120 pts</div>
+          <div style="color:var(--muted);margin-top:8px">You deposited 6 bottles this week</div>
+          <div class="cta-row">
+            <button class="btn" onclick="alert('Redeem flow coming soon')">Redeem</button>
+            <button class="btn secondary" onclick="scrollToSection('rewards')">Rewards catalog</button>
+          </div>
+        </aside>
+      </section>
+
+      <!-- Features / Benefits -->
+      <section class="grid-3" aria-labelledby="benefits">
+        <div class="card">
+          <h3 id="benefits">Cleaner campus</h3>
+          <p class="small">Reduce litter and make outdoor spaces inviting for students and staff.</p>
+        </div>
+        <div class="card">
+          <h3>Student rewards</h3>
+          <p class="small">Points, discounts, and campus perks motivate behavior and increase engagement.</p>
+        </div>
+        <div class="card">
+          <h3>Data for admins</h3>
+          <p class="small">Dashboards show collection metrics and hotspots to optimise placement and logistics.</p>
+        </div>
+      </section>
+
+      <!-- How it works -->
+      <section id="howitworks" style="margin-top:28px;">
+        <div class="card">
+          <h3>How it works</h3>
+          <div class="how" style="margin-top:12px;">
+            <div style="flex:1;">
+              <div class="step">
+                <div class="num">1</div>
+                <div>
+                  <strong>Register</strong>
+                  <div class="small">Sign up with your college email to link activity to your account.</div>
+                </div>
+              </div>
+
+              <div class="step" style="margin-top:12px;">
+                <div class="num">2</div>
+                <div>
+                  <strong>Drop bottles</strong>
+                  <div class="small">Deposit bottles in smart bins across campus and scan the QR.</div>
+                </div>
+              </div>
+
+              <div class="step" style="margin-top:12px;">
+                <div class="num">3</div>
+                <div>
+                  <strong>Earn points</strong>
+                  <div class="small">Get instant points that show up in your dashboard.</div>
+                </div>
+              </div>
+
+              <div class="step" style="margin-top:12px;">
+                <div class="num">4</div>
+                <div>
+                  <strong>Redeem perks</strong>
+                  <div class="small">Use points for campus discounts or to support campus projects.</div>
+                </div>
+              </div>
+            </div>
+
+            <div style="width:280px;">
+              <div style="height:160px;border-radius:12px;background:linear-gradient(180deg,#f2fff6,#ffffff);display:flex;flex-direction:column;justify-content:center;align-items:center;">
+                <div style="font-weight:700;color:var(--green-2);font-size:18px">Campus Impact</div>
+                <div style="font-size:26px;font-weight:800;margin-top:8px">1,250 kg</div>
+                <div class="small" style="margin-top:6px;color:var(--muted)">Plastic diverted this month</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Rewards -->
+      <section id="rewards" style="margin-top:20px;">
+        <div class="card">
+          <h3>Sample rewards</h3>
+          <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:12px;">
+            <div style="flex:1;min-width:200px;background:#f7fff9;padding:12px;border-radius:10px">
+              <strong>Free coffee</strong>
+              <div class="small">50 pts</div>
+            </div>
+            <div style="flex:1;min-width:200px;background:#fff8f0;padding:12px;border-radius:10px">
+              <strong>Discount at cafeteria</strong>
+              <div class="small">150 pts</div>
+            </div>
+            <div style="flex:1;min-width:200px;background:#f0f7ff;padding:12px;border-radius:10px">
+              <strong>Contribution to campus bench</strong>
+              <div class="small">500 pts</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Signup / Contact -->
+      <section id="signup" style="margin-top:26px;">
+        <div class="card">
+          <h3>Request a pilot</h3>
+          <p class="small">We deploy on a limited number of campuses each quarter. Tell us about your college and we'll follow up.</p>
+          <form onsubmit="onPilotSubmit(event)" style="display:flex;gap:10px;flex-wrap:wrap;margin-top:10px">
+            <input class="input" id="college" placeholder="College name" required>
+            <input class="input" id="contact" placeholder="Contact email/phone" required>
+            <button class="btn" type="submit">Request pilot</button>
+          </form>
+        </div>
+      </section>
+
+      <footer class="footer" style="margin-top:28px;">
+        <div>
+          <div style="display:flex;gap:8px;align-items:center">
+            <div class="logo" style="width:44px;height:44px;font-size:16px">GB</div>
+            <div>
+              <div style="font-weight:700">GreenBack</div>
+              <div class="small">Recycle • Reward • Reuse</div>
+            </div>
+          </div>
+        </div>
+        <div style="text-align:right">
+          <div class="small">© <span id="year"></span> GreenBack</div>
+          <div class="small">Built for campus pilots • hello@greenback.example</div>
+        </div>
+      </footer>
+    </main>
+  </div>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    function scrollToSection(id){
+      const el = document.getElementById(id);
+      if(el) el.scrollIntoView({behavior:'smooth', block:'start'});
+    }
+
+    function onLeadSubmit(e){
+      e.preventDefault();
+      const name = document.getElementById('name').value.trim();
+      const email = document.getElementById('email').value.trim();
+      if(!name || !email) return alert('Please provide name and college email.');
+      // Mock action - replace with real API integration
+      alert('Thanks ' + name + '! We received your request. We will reach out to ' + email + ' shortly.');
+      e.target.reset();
+    }
+
+    function onPilotSubmit(e){
+      e.preventDefault();
+      const college = document.getElementById('college').value.trim();
+      const contact = document.getElementById('contact').value.trim();
+      if(!college || !contact) return alert('Please fill all fields.');
+      alert('Pilot request received for ' + college + '. We will contact ' + contact + '.');
+      e.target.reset();
+    }
+  </script>
 </body>
 </html>
